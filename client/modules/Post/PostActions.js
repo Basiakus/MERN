@@ -33,6 +33,14 @@ export function addPosts(posts) {
   };
 }
 
+export function fetchPosts() {
+  return (dispatch) => {
+    return callApi('posts').then(res => {
+      dispatch(addPosts(res.posts));
+    });
+  };
+}
+
 
 export function fetchPost(cuid) {
   return (dispatch) => {
