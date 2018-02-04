@@ -30,11 +30,19 @@ export default (
     <IndexRoute
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
+          cb(null, require('./modules/Home/Home').default);
+          //cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
         });
       }}
     />
-
+    <Route
+      path="/home"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Home/Home').default);
+        });
+      }}
+    />
     <Route
       path="/posts/:slug-:cuid"
       getComponent={(nextState, cb) => {
@@ -45,10 +53,10 @@ export default (
     />
 
     <Route
-      path="/home"
+      path="/Post"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Home/Home').default);
+          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
         });
       }}
     />
