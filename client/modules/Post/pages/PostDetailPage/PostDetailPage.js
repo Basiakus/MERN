@@ -69,9 +69,7 @@ export class PostDetailPage extends React.Component {
         <h3 className={styles['post-title']}> {props.post.title} </h3>
         <p className={styles['author-name']}> <FormattedMessage id="by" /> {props.post.name}</p>
         <p className={styles['post-desc']}> {props.post.content}</p>
-      </div>
-        <button>plus</button>
-        <button>minus</button>  
+      </div> 
     </div>
     );
   }
@@ -103,6 +101,7 @@ PostDetailPage.propTypes = {
     content: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
+    voteCount: PropTypes.number.isRequired,
   }).isRequired,
   intl: PropTypes.shape({
     messages: PropTypes.shape({
