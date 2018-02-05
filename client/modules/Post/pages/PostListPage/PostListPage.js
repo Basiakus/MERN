@@ -6,7 +6,7 @@ import PostList from '../../components/PostList';
 import PostCreateWidget from '../../components/PostCreateWidget/PostCreateWidget';
 
 // Import Actions
-import { addPostRequest, fetchPosts, deletePostRequest } from '../../PostActions';
+import { addPostRequest, fetchPosts, deletePostRequest, thumbDownRequest  } from '../../PostActions';
 import { toggleAddPost } from '../../../App/AppActions';
 
 // Import Selectors
@@ -21,6 +21,11 @@ class PostListPage extends Component {
   handleDeletePost = post => {
     if (confirm('Do you want to delete this post')) { // eslint-disable-line
       this.props.dispatch(deletePostRequest(post));
+    }
+  };
+  handleThumbDownPost = post => {
+    if (confirm('Do you want to note this post')) { // eslint-disable-line
+      this.props.dispatch(thumbDownRequest(post));
     }
   };
 

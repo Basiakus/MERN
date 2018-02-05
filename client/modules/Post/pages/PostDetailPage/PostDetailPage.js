@@ -70,6 +70,8 @@ export class PostDetailPage extends React.Component {
         <p className={styles['author-name']}> <FormattedMessage id="by" /> {props.post.name}</p>
         <p className={styles['post-desc']}> {props.post.content}</p>
       </div>
+        <button>plus</button>
+        <button>minus</button>  
     </div>
     );
   }

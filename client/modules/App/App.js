@@ -49,13 +49,13 @@ export class App extends Component {
               },
             ]}
           />
+          <Navigation />
           <Header 
             component={Navigation}
             switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
             intl={this.props.intl}
             toggleAddPost={this.toggleAddPostSection}
           />
-          <Navigation />
           <div className={styles.container}>
             {this.props.children}
           </div>

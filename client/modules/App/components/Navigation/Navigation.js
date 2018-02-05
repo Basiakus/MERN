@@ -5,9 +5,9 @@ const Navigation = (props, context) => {
 	return (
 		<div className={styles['navigation']}>
 	       <ul>
-	            <li><Link to="/Home"><a>Home</a></Link></li>
-	            <li><Link to="/post"><a>Post</a></Link></li>
-	            <li><Link to="/About"><a>About</a></Link></li>
+	            <li><Link to="/Home">Home</Link></li>
+	            <li><Link to="/post">Post</Link></li>
+	            <li><Link to="/About">About</Link></li>
 	        </ul>
 	        {props.children}
     	</div>
