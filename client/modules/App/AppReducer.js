@@ -11,6 +11,7 @@ const AppReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_ADD_POST:
       	return {
+        ...state,
     		showAddPost: !state.showAddPost,
       };
     case TOGGLE_EDIT_POST:
