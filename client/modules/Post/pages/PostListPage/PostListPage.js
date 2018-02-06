@@ -14,6 +14,9 @@ import { toggleAddPost } from '../../../App/AppActions';
 import { getShowAddPost } from '../../../App/AppReducer';
 import { getPosts } from '../../PostReducer';
 
+// Import Style
+import styles from './PostListPage.css';
+
 class PostListPage extends Component {
   componentDidMount() {
     this.props.dispatch(fetchPosts());
@@ -40,10 +43,14 @@ class PostListPage extends Component {
     this.props.dispatch(addPostRequest({ name, title, content }));
   };
 
+  toggleAddPost = (name, title, content) => {
+    this.props.dispatch(toggleAddPost());
+  };
+
   render() {
     return (
       <div>
-        <a className={styles['add-post-button']} href="#" onClick={props.toggleAddPost}><FormattedMessage id="addPost" /></a>
+        <a className={styles['add-post-button']} href="#" onClick={this.toggleAddPost}><FormattedMessage id={this.props.showAddPost ? "close" : "addPost"} /></a>
         <PostCreateWidget addPost={this.handleAddPost} showAddPost={this.props.showAddPost} />
         <PostList handleDeletePost={this.handleDeletePost} handleThumbUpPost={this.handleThumbUpPost} handleThumbDownPost={this.handleThumbDownPost} posts={this.props.posts} />
       </div>
@@ -69,8 +76,7 @@ PostListPage.propTypes = {
     content: PropTypes.string.isRequired,
   })).isRequired,
   showAddPost: PropTypes.bool.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  toggleAddPost: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 PostListPage.contextTypes = {

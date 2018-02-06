@@ -4,6 +4,7 @@ export default {
     siteTitle: 'MERN Starter Blog',
     addPost: 'Add Post',
     editPost: 'Edit Post',
+    close: 'Close',
     thumbUp: "\uD83D\uDC4D",
     thumbDown: "\uD83D\uDC4E",
     switchLanguage: 'Switch Language',

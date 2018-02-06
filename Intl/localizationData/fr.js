@@ -4,6 +4,7 @@ export default {
     siteTitle: 'MERN blog de démarrage',
     addPost: 'Ajouter Poster',
     editPost: 'Edit Post',
+    close: 'Close',
     thumbUp: '&#128077;',
     thumbDown: 'Vote-down Post',
     switchLanguage: 'Changer de langue',
