@@ -9,22 +9,22 @@ export const THUMB_UP = 'THUMB_UP';
 export const THUMB_DOWN = 'THUMB_DOWN';
 
 // Export Actions
-export function addPost(post, voteCount = 0) {
+export function addPost(post, voteCount) {
   return {
     type: ADD_POST,
     post,
-    voteCount,
+    voteCount: 0,
   };
 }
 
-export function addPostRequest(post, voteCount = 0) {
+export function addPostRequest(post, voteCount) {
   return (dispatch) => {
     return callApi('posts', 'post', {
       post: {
         name: post.name,
         title: post.title,
         content: post.content,
-        voteCount,
+        voteCount: 0,
       },
     }).then(res => dispatch(addPost(res.post)));
   };
