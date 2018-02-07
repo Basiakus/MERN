@@ -9,22 +9,21 @@ export const THUMB_UP = 'THUMB_UP';
 export const THUMB_DOWN = 'THUMB_DOWN';
 
 // Export Actions
-export function addPost(post, voteCount = 0) {
+export function addPost(post) {
   return {
     type: ADD_POST,
-    post,
-    voteCount,
+    post
   };
 }
 
-export function addPostRequest(post, voteCount = 0) {
+export function addPostRequest(post) {
   return (dispatch) => {
     return callApi('posts', 'post', {
       post: {
         name: post.name,
         title: post.title,
         content: post.content,
-        voteCount,
+        voteCount: 0
       },
     }).then(res => dispatch(addPost(res.post)));
   };
@@ -33,7 +32,7 @@ export function addPostRequest(post, voteCount = 0) {
 export function addPosts(posts) {
   return {
     type: ADD_POSTS,
-    posts,
+    posts
   };
 }
 
@@ -55,23 +54,19 @@ export function fetchPost(cuid) {
 export function deletePost(cuid) {
   return {
     type: DELETE_POST,
-    cuid,
+    cuid
   };
 }
-export function thumbUp(cuid, voteCount, post) {
+export function thumbUp(cuid) {
   return {
     type: THUMB_UP,
-    cuid,
-    voteCount,
-    post,
+    cuid
   };
 }
-export function thumbDown(cuid, voteCount, post) {
+export function thumbDown(cuid) {
   return {
     type: THUMB_DOWN,
-    cuid,
-    voteCount,
-    post,
+    cuid
   };
 }
 
@@ -82,22 +77,22 @@ export function deletePostRequest(cuid) {
   };
 }
 
-export function thumbUpRequest(cuid, post) {
+export function thumbUpRequest(cuid, voteCount) {
   return (dispatch) => {
     return callApi(`posts/${cuid}`, 'put', {
       post: {
-        voteCount: post.voteCount,
+        voteCount
       },
-    }).then(() => dispatch(thumbDown(cuid)));
+    }).then(() => dispatch(thumbUp(cuid)));
   };
 }
 
 
-export function thumbDownRequest(cuid, post) {
+export function thumbDownRequest(cuid, voteCount) {
   return (dispatch) => {
     return callApi(`posts/${cuid}`, 'put', {
       post: {
-        voteCount: post.voteCount,
+        voteCount
       },
     }).then(() => dispatch(thumbDown(cuid)));
   };
@@ -108,7 +103,7 @@ export function editPost(cuid, post) {
   return {
     type: EDIT_POST,
     cuid,
-    post,
+    post
   };
 }
 export function editPostRequest(cuid, post) {
@@ -118,6 +113,7 @@ export function editPostRequest(cuid, post) {
         name: post.name,
         title: post.title,
         content: post.content,
+        voteCount: post.voteCount
       },
     }).then(() => dispatch(editPost(cuid, post)));
   };

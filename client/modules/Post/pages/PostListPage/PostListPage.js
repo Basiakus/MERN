@@ -29,12 +29,12 @@ class PostListPage extends Component {
   };
   handleThumbDownPost = post => {
     if (confirm('Do you want to note this post')) { 
-      this.props.dispatch(thumbDownRequest(post));
+      this.props.dispatch(thumbDownRequest(post.cuid, post.voteCount));
     }
   };
   handleThumbUpPost = post => {
     if (confirm('Do you want to note this post')) { 
-      this.props.dispatch(thumbUpRequest(post));
+      this.props.dispatch(thumbUpRequest(post.cuid, post.voteCount));
     }
   };
 
