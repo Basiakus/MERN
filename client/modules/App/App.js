@@ -49,7 +49,6 @@ export class App extends Component {
               },
             ]}
           />
-          <Navigation />
           <Header 
             component={Navigation}
             switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
